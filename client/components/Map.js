@@ -86,7 +86,7 @@ var Map = React.createClass({
 
   render: function(){
   	var markerList = this.state.data.map(function(post,index){
-  		return (<Marker lat={post.location.latitude} lng={post.location.longitude} label={index+1} key={index}></Marker>);
+  		return (<Marker class = 'marker' lat={post.location.latitude} lng={post.location.longitude} label={index+1} key={index}></Marker>);
   	});
 
   	return(
