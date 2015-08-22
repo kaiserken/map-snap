@@ -5,9 +5,18 @@ var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var nodemon = require('gulp-nodemon');
 
-gulp.task('browserify', scripts)
-		.task('develop',develop);
-
+gulp.task('browserify', scripts);
+gulp.task('build', function() {
+		var bundler = browserify('./client/main.js');
+		bundler
+			.transform(reactify)
+			.bundle()
+			.on('error', function(err){
+				console.log('Error compiling components', err.message);
+			})
+			.pipe(source('bundle.js'))
+			.pipe(gulp.dest('./client/build'));
+})
 function scripts(){
 	var bundler = browserify('./client/main.js');
 
@@ -35,12 +44,8 @@ function scripts(){
 		.pipe(gulp.dest('./client/build/'));
 };
 
-function develop(){
-	nodemon({
-		script: 'server.js',
-		ext: 'html js',
-	})
-};
 
-gulp.task('default', ['develop', 'browserify']);
+
+
+gulp.task('default', [ 'browserify']);
 

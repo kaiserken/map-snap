@@ -14,7 +14,7 @@ var Map = React.createClass({
   getInitialState: function(){
     return{
       center: [33.979471, -118.422549],
-      zoom: 12,
+      zoom: 14,
       value: '',
 
       source: "https://api.instagram.com/v1/media/search?lat=33.979471&lng=-118.422549&client_id=46141b7b17fa4f29911b66e830bafcf1&callback=?",
