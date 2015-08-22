@@ -89,8 +89,14 @@ var Map = React.createClass({
   		return (<Marker lat={post.location.latitude} lng={post.location.longitude} label={index+1} key={index}></Marker>);
   	});
 
+    var mapStyle  = {
+    height: '50%',
+    width: '50%',
+    margin: '0 auto'
+    };
+
   	return(
-      	<div styles={styles.gmap}>
+      	<div styles={mapStyle}>
       	<GoogleMap center={this.state.center} zoom={this.state.zoom}>
       		{markerList}
         </GoogleMap>
@@ -108,13 +114,9 @@ var Map = React.createClass({
 });
 
 
-var styles =
-StyleSheet.create({
-	gmap:{
-		height: '50%',
-		width: '50%',
-		margin: '0 auto'
-	}
-});
+// var styles =
+// StyleSheet.create({
+// 	gmap:
+// });
 
 module.exports = Map;

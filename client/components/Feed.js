@@ -2,11 +2,6 @@ var React = require('react');
 var Feeditem = require('./Feeditem');
 
 
-
-
-  
-  
-
 var StyleSheet = require('react-style');
 
 var Feed = React.createClass({
